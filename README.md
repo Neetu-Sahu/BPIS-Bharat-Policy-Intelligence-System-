@@ -114,7 +114,7 @@ Decision Support Dashboard
 
 ## 👥 Team
 
-Developed during **SRMS Hackathon 4.0**
+Developed during **SRMS Hackathon 4.0**<br>
 **Members:** Neetu Sahu & Dev Saxena
 
 **Theme:** *Innovate Locally, Impact Globally*
