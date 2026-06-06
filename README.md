@@ -123,7 +123,7 @@ Developed during **SRMS Hackathon 4.0**<br>
 
 ## 📜 License
 
-This project is developed for educational and research purposes.
+This project is developed for educational purposes only.
 
 ---
 
