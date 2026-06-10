@@ -1,5 +1,5 @@
 import { useLanguage } from '../contexts/LanguageContext';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Rectangle } from "recharts";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { getLocalizedDistrictName } from "../utils/districtLocalization";
@@ -48,8 +48,8 @@ function PopulationChart() {
           <XAxis dataKey="district" interval={0} angle={-45}  textAnchor="end" height={80} fontSize={12} tickFormatter={getDistrictLabel} fontWeight={700} tick={{ fill: '#000000' }} />
           {/* <XAxis dataKey="district" tickFormatter={getDistrictLabel} /> */}
           <YAxis tick={{ fill: '#000000' }} fontSize={12} fontWeight={700}/>
-          <Tooltip content={<CustomTooltip />} />
-          <Bar dataKey="population" fill="#3498db" />
+          <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(52, 152, 219, 0.08)' }} />
+          <Bar dataKey="population" fill="#3498db" radius={[8, 8, 0, 0]} activeBar={<Rectangle fill="#2980b9" stroke="#1f618d" strokeWidth={2} />} />
         </BarChart>
       </ResponsiveContainer>
     </div>

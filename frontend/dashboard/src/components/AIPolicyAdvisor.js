@@ -73,7 +73,7 @@ const AIPolicyAdvisor = () => {
         increaseFunding: "Increase Funding (%):",
         runSimulation: "Run Simulation",
         beforeAfter: "Before vs After Policy Impact",
-        greyGreen: "धूसर = वर्तमान स्थिति, हरा = अनुमानित प्रभाव",
+        greyGreen: "Grey = Current Status, Green = Predicted Impact",
         recommendedDistricts: "Recommended Districts",
         beforeSimulation: "Before Simulation (Current High Priority)",
         reason: "Reason",

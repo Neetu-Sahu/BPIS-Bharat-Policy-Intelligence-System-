@@ -522,6 +522,44 @@ const SchemeRepository = () => {
                   )}
                 </p>
               </section>
+
+              <section
+                style={{
+                  background: "rgba(255, 255, 255, 0.55)",
+                  borderRadius: "18px",
+                  padding: "18px 20px",
+                  border: "1px solid rgba(255, 255, 255, 0.3)",
+                }}
+              >
+                <h3
+                  style={{
+                    margin: "0 0 10px 0",
+                    color: "#ea580c",
+                    fontSize: "1rem",
+                    fontWeight: 800,
+                    letterSpacing: "0.02em",
+                  }}
+                >
+                  {t("officialWebsite") || "Official Website"}
+                </h3>
+                  <a 
+                    href={`https://www.google.com/search?q=${encodeURIComponent(selectedScheme.name + " official website govt of india")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      color: "#2563eb",
+                      fontWeight: 700,
+                      textDecoration: "none",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "6px",
+                      fontSize: "0.98rem",
+                    }}
+                  >
+                    Verify {selectedScheme.name} details online
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  </a>
+              </section>
             </div>
           </div>
         </div>

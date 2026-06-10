@@ -1,5 +1,5 @@
 import { useLanguage } from '../contexts/LanguageContext';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Rectangle } from "recharts";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { getLocalizedDistrictName } from "../utils/districtLocalization";
@@ -8,6 +8,7 @@ import { getLocalizedDistrictName } from "../utils/districtLocalization";
 function Charts() {
   const { t } = useLanguage();
   const [data, setData] = useState([]);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     axios.get("http://localhost:8000/priority-ranking")
@@ -42,7 +43,21 @@ function Charts() {
   };
 
   return (
-    <div style={{ width: "100%", height: 420, background: "rgba(255,255,255,0.96)", borderRadius: "20px", border: "1px solid rgba(226,232,240,0.9)", boxShadow: "0 18px 40px rgba(15,23,42,0.08)", padding: "20px" }}>
+    <div 
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      style={{ 
+        width: "100%", 
+        height: 420, 
+        background: "rgba(255,255,255,0.96)", 
+        borderRadius: "20px", 
+        border: "1px solid rgba(226,232,240,0.9)", 
+        boxShadow: isHovered ? "0 24px 50px rgba(15,23,42,0.15)" : "0 18px 40px rgba(15,23,42,0.08)", 
+        padding: "20px",
+        transform: isHovered ? "translateY(-4px)" : "none",
+        transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
+      }}
+    >
       <h3 style={{ marginTop: 0, marginBottom: "12px", color: "#0f172a" }}>{t('topPriorityDistricts')}</h3>
       <ResponsiveContainer>
         <BarChart data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
@@ -54,8 +69,8 @@ function Charts() {
           </defs>
           <XAxis dataKey="district" tick={{ fill: '#334155', fontSize: 12 }} tickFormatter={getDistrictLabel} angle={-45}  textAnchor="end" height={80} fontSize={12} fontWeight={700} />
           <YAxis dataKey="priority_score" tick={{ fill: '#334155' }} fontSize={12} fontWeight={700}/>
-          <Tooltip content={<CustomTooltip />} />
-          <Bar dataKey="priority_score" fill="url(#priorityGradient)" radius={[10, 10, 0, 0]} />
+          <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(234, 88, 12, 0.04)' }} />
+          <Bar dataKey="priority_score" fill="url(#priorityGradient)" radius={[10, 10, 0, 0]} activeBar={<Rectangle fill="#f97316" stroke="#ea580c" strokeWidth={2} />} />
         </BarChart>
       </ResponsiveContainer>
     </div>

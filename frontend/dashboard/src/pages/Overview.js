@@ -2,12 +2,15 @@ import React from 'react';
 import MapView from "../components/MapView";
 import SummaryCards from "../components/SummaryCards";
 import { useLanguage } from '../contexts/LanguageContext';
+import HeroSlider from '../components/HeroSlider';
 
 const Overview = () => {
   const { t } = useLanguage();
 
   return (
     <div style={{ padding: '28px', maxWidth: '1440px', margin: '0 auto' }}>
+      <HeroSlider />
+      
       <div className="gov-card" style={{ padding: '28px' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', gap: '12px', alignItems: 'end', flexWrap: 'wrap' }}>
           <div>
